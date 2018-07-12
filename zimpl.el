@@ -1,36 +1,18 @@
- ;;; zimpl.el --- Zimpl major mode
+;;; zimpl.el --- ZIMPL major mode
 
-;; Copyright (C) 2001  Free Software Foundation, Inc.
+;; URL: https://github.com/ax487/zpl-mode.git
+;; Version: 20180712
+;; Package-Requires: ((emacs "24.3"))
 
-;; Author: StefanMonnier
-;; Keywords: extensions
+;; This file is not part of GNU Emacs.
 
-;; This file is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
+;;; Commentary:
 
-;; This file is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
+;; This package provides a major mode for
+;; ZIMPL (Zuse Institute Mathematical Programming Language).
+;; It supports basic font-lock highlights.
 
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-;; Boston, MA 02111-1307, USA.
-
- ;;; Commentary:
-
-;;
-
- ;;; Code:
-
-;; (defvar zimpl-mode-map
-;;   (let ((map (make-sparse-keymap)))
-;;     (define-key map [foo] 'zimpl-do-foo)
-;;     map)
-;;   "Keymap for `zimpl-mode'.")
+;;; Code:
 
 (defvar zimpl-mode-syntax-table
   (let ((st (make-syntax-table)))
@@ -84,8 +66,8 @@
 ;;   ...)
 
  ;;;###autoload
-(define-derived-mode zimpl-mode fundamental-mode "Zimpl"
-  "A major mode for editing Zimpl files."
+(define-derived-mode zimpl-mode fundamental-mode "ZIMPL"
+  "A major mode for editing ZIMPL files."
   :syntax-table zimpl-mode-syntax-table
   (setq-local comment-start "# ")
   (setq-local comment-start-skip "#+\\s-*")
@@ -96,22 +78,6 @@
                                         ;            zimpl-imenu-generic-expression)
                                         ;(setq-local outline-regexp zimpl-outline-regexp)
   )
-
- ;;; Indentation
-
-;; (defun zimpl-indent-line ()
-;;   "Indent current line of Zimpl code."
-;;   (interactive)
-;;   (let ((savep (> (current-column) (current-indentation)))
-;;      (indent (condition-case nil (max (zimpl-calculate-indentation) 0)
-;;                (error 0))))
-;;     (if savep
-;;      (save-excursion (indent-line-to indent))
-;;       (indent-line-to indent))))
-
-;; (defun zimpl-calculate-indentation ()
-;;   "Return the column to which the current line should be indented."
-;;   ...)
 
 (add-to-list 'auto-mode-alist '("\\.zpl\\'" . zimpl-mode))
 

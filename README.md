@@ -1,5 +1,4 @@
 # zpl-mode
-Zimpl major mod for Emacs
+ZIMPL major mode for Emacs
 
-Zimpl is a Mathematical Mathematical Modeling language
-http://zimpl.zib.de/download/zimpl.pdf
+[ZIMPL](http://zimpl.zib.de/download/zimpl.pdf) is a Mathematical Modeling language.
