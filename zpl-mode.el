@@ -82,4 +82,5 @@
 (add-to-list 'auto-mode-alist '("\\.zpl\\'" . zimpl-mode))
 
 (provide 'zimpl)
- ;;; zimpl.el ends here
+
+;;; zimpl.el ends here
