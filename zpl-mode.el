@@ -1,4 +1,4 @@
-;;; zimpl.el --- ZIMPL major mode
+;;; zpl-mode.el --- ZIMPL major mode
 
 ;; URL: https://github.com/ax487/zpl-mode.git
 ;; Version: 20180712
@@ -14,14 +14,14 @@
 
 ;;; Code:
 
-(defvar zimpl-mode-syntax-table
+(defvar zpl-mode-syntax-table
   (let ((st (make-syntax-table)))
     (modify-syntax-entry ?# "<" st)
     (modify-syntax-entry ?\n ">" st)
     st)
-  "Syntax table for `zimpl-mode'.")
+  "Syntax table for `zpl-mode'.")
 
-(defvar zimpl-keywords '("set" "param" "var"
+(defvar zpl-keywords '("set" "param" "var"
                          "defset" "defnumb" "defstrg" "defbool"
                          "minimize" "maximize"
                          "subto"
@@ -34,7 +34,7 @@
                          "scale" "separate" "checkonly" "indicator"
                          "read" "as" "skip" "use" "comment"))
 
-(defvar zimpl-builtins '(
+(defvar zpl-builtins '(
                           "union" "cross" "inter" "in" "symdiff" "proj"
                           "argmin" "argmax"
                           "print" "check"
@@ -44,43 +44,43 @@
                           "substr" "lenth"
                           "powerset" "indexset" "subsets"))
 
-;; (regexp-opt zimpl-keywords)
-;; (regexp-opt zimpl-constants)
+;; (regexp-opt zpl-keywords)
+;; (regexp-opt zpl-constants)
 
-(defvar zimpl-constants '("infinity"))
+(defvar zpl-constants '("infinity"))
 
-;; (defvar zimpl-font-lock-keywords
-;;   `(,(regexp-opt zimpl-keywords) . font-lock-constant-face)
-;;   "Keyword highlighting specification for `zimpl-mode'.")
+;; (defvar zpl-font-lock-keywords
+;;   `(,(regexp-opt zpl-keywords) . font-lock-constant-face)
+;;   "Keyword highlighting specification for `zpl-mode'.")
 
-(defvar zimpl-font-lock-keywords
-  (list `(,(regexp-opt zimpl-keywords 'words) . font-lock-keyword-face)
-        `(,(regexp-opt zimpl-constants 'words) . font-lock-constant-face)
-        `(,(regexp-opt zimpl-builtins 'words) . font-lock-builtin-face))
-  "Keyword highlighting specification for `zimpl-mode'.")
+(defvar zpl-font-lock-keywords
+  (list `(,(regexp-opt zpl-keywords 'words) . font-lock-keyword-face)
+        `(,(regexp-opt zpl-constants 'words) . font-lock-constant-face)
+        `(,(regexp-opt zpl-builtins 'words) . font-lock-builtin-face))
+  "Keyword highlighting specification for `zpl-mode'.")
 
-;; (defvar zimpl-imenu-generic-expression
+;; (defvar zpl-imenu-generic-expression
 ;;   ...)
 
-;; (defvar zimpl-outline-regexp
+;; (defvar zpl-outline-regexp
 ;;   ...)
 
  ;;;###autoload
-(define-derived-mode zimpl-mode fundamental-mode "ZIMPL"
+(define-derived-mode zpl-mode fundamental-mode "ZIMPL"
   "A major mode for editing ZIMPL files."
-  :syntax-table zimpl-mode-syntax-table
+  :syntax-table zpl-mode-syntax-table
   (setq-local comment-start "# ")
   (setq-local comment-start-skip "#+\\s-*")
   (setq-local font-lock-defaults
-              '(zimpl-font-lock-keywords))
-                                        ;(setq-local indent-line-function 'zimpl-indent-line)
+              '(zpl-font-lock-keywords))
+                                        ;(setq-local indent-line-function 'zpl-indent-line)
                                         ;(setq-local imenu-generic-expression
-                                        ;            zimpl-imenu-generic-expression)
-                                        ;(setq-local outline-regexp zimpl-outline-regexp)
+                                        ;            zpl-imenu-generic-expression)
+                                        ;(setq-local outline-regexp zpl-outline-regexp)
   )
 
-(add-to-list 'auto-mode-alist '("\\.zpl\\'" . zimpl-mode))
+(add-to-list 'auto-mode-alist '("\\.zpl\\'" . zpl-mode))
 
-(provide 'zimpl)
+(provide 'zpl-mode)
 
-;;; zimpl.el ends here
+;;; zpl-mode.el ends here
